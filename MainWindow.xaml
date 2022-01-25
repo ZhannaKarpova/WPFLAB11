@@ -1,0 +1,34 @@
+﻿<Window x:Class="WPFLAB11.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFLAB11"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="300" Width="300">
+    <Window.Resources>
+        <GeometryGroup x:Key="ellipse">
+            <EllipseGeometry RadiusX="50" RadiusY="50" Center="150,150"/>
+            <EllipseGeometry RadiusX="40" RadiusY="40" Center="150,150"/>
+        </GeometryGroup>
+        <RectangleGeometry x:Key="rect" Rect="110,144,80,12">
+            <RectangleGeometry.Transform>
+                <RotateTransform CenterX="150" CenterY="150" Angle="-45"/>
+            </RectangleGeometry.Transform>
+        </RectangleGeometry>
+    </Window.Resources>
+    <Grid>
+        <Path Fill="Red" Stroke="Black">
+            <Path.Data>
+                <CombinedGeometry 
+                    GeometryCombineMode="Union"
+                    Geometry1="{StaticResource ellipse}"
+                    Geometry2="{StaticResource rect}"/>
+            </Path.Data>
+        </Path>
+    </Grid>
+
+
+
+
+</Window>
